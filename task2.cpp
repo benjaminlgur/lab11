@@ -5,11 +5,10 @@ using namespace std;
 
 bool isEven(string s);
 bool endCheck(string s, int count);
+int nestLevel(string s);
 
 int main(){
-    int count = 0; //used ti count nesting.
-    bool wellForm;
-    bool check;
+    int count = 0; //used t0 count nesting.
     string s;
     cout << "Enter string to check for being well formed:\n";
     cin >> s;
@@ -23,7 +22,7 @@ int main(){
             return 0;
         }
     }
-    cout << "Well-formed\n";
+    cout << "Well-formed\n" << "The string has " << nestLevel(s) << " levels of nesting.\n";
 }
 
 bool endCheck(string s, int count){ //subtracted length by one becuse of 0 indexing.
@@ -51,4 +50,8 @@ bool isEven(string s){
     else {
         return false;
     }
+}
+
+int nestLevel(string s){
+    return s.length() / 2;
 }
