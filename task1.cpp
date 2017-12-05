@@ -7,8 +7,6 @@ bool isEven(string s);
 bool endCheck(string s, int count);
 
 int main(){
-    bool wellForm;
-    bool check;
     string s;
     cout << "Enter string to check for being well formed:\n";
     cin >> s;
