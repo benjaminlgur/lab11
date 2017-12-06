@@ -21,7 +21,6 @@ char bracket(char letter);
 
 int main(){
     string s;
-    int inc = 0;
     cout << "Enter string to check for being well formed:\n";
     cin >> s;
     if(isEven(s) == false){
@@ -37,7 +36,7 @@ int main(){
 }
 
 bool wellFormed(string s){ 
-    static int count = 0;
+    static int count = 0; //These 3 static ints are used to move through the string.
     static int left = 0;
     static int right = 0;
     if (count == (lengthCheck(s)/2)){
