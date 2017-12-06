@@ -1,3 +1,12 @@
+/*
+  Author: <Benjamin Gur>
+  Course: {136}
+  Instructor: <Pajula>
+  Assignment: <lab 11> 
+
+  This program finds wether a string including brackets is wellformed according to the parmeters of lab 11.
+*/
+
 #include <iostream>
 #include <string>
 
@@ -22,7 +31,7 @@ char bracket(char letter);
 int main(){
     string s;
     cout << "Enter string to check for being well formed:\n";
-    cin >> s;
+    getline(cin, s); //using getline in order to see white space.
     if(isEven(s) == false){
         cout << "Not well-formed\n"; //must be even in order to have all pairs therefore wellformed
         return 0;
@@ -35,6 +44,7 @@ int main(){
     }
 }
 
+//This function works by scaning the string from both the left and the right meeting in the middle of the brakets. All brackets from the left should be front brackets and all brackets from the right should be back brackets.
 bool wellFormed(string s){ 
     static int count = 0; //These 3 static ints are used to move through the string.
     static int left = 0;
@@ -107,3 +117,22 @@ char bracket(char letter){ //f is front bracket b is back bracket c is a another
         return 'c';
     }
 }
+
+/* Test cases
+
+An empty string returns wellformed.
+A sting of only non bracket charecters returns well formed. 
+Inputing {[{}]} is well-formed. The string has 3 levels of nesting.
+Inputing <[()]> is well-formed. The string has 3 levels of nesting.
+Inputing <<(<()>)>> is well-formed. The string has 5 levels of nesting.
+Inputing {(){ is well-formed. The string has 2 levels of nesting.
+Inputing <[()]()> is well-formed. The string has 4 levels of nesting.
+Inputing {(}) is well-formed. The string has 2 levels of nesting.
+Inputing <asd{dsa}dsa> is well-formed. The string has 2 levels of nesting.
+Inputing y=(mx+b) is well-formed. The string has 1 levels of nesting.
+Inputing (b^2)={ac} is well-formed. The string has 2 levels of nesting.
+Inputing <><><><><><><><> is well-formed. The string has 8 levels of nesting.
+Inputing apple as<<< dsaasdas >>> dadad is well-formed. The string has 3 levels of nesting.
+Inputing (<>)() is well-formed. The string has 3 levels of nesting.
+Inputing <(<{}?)> is not well-formed
+*/
